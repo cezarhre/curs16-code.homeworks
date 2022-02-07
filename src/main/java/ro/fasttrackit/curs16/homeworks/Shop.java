@@ -1,9 +1,6 @@
 package ro.fasttrackit.curs16.homeworks;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 public class Shop<T extends ShopItem> {
 
@@ -48,10 +45,12 @@ public class Shop<T extends ShopItem> {
         return Optional.empty();
     }
 
-    public Object removeItem(String name){
-        for(T elem : items){
-            if(Objects.equals(elem.getName(), name)){
-                return items.remove(elem);
+    public Optional<T> removeItem(String name){
+        Iterator<T> result = items.listIterator();
+               while (result.hasNext()){
+                   T elem = result.next();
+                   if(Objects.equals(elem.getName(), name)){
+                       result.remove();
              }
         }
         return Optional.empty();
