@@ -10,23 +10,23 @@ class RecursiveMethodsTest {
     @Test
     void testSumIntNumbers(){
         RecursiveMethods recursiveMethods = new RecursiveMethods();
-        assertThat(recursiveMethods.sum_n(0)).isZero();
+        assertThat(recursiveMethods.sumN(0)).isZero();
         IllegalArgumentException exc = assertThrows(IllegalArgumentException.class,
-                ()->recursiveMethods.sum_n(-1));
+                ()->recursiveMethods.sumN(-1));
         org.assertj.core.api.Assertions.assertThat(exc.getMessage()).isEqualTo("Illegal argument");
-        assertThat(recursiveMethods.sum_n(3)).isEqualTo(6);
-        assertThat(recursiveMethods.sum_n(10)).isEqualTo(55);
+        assertThat(recursiveMethods.sumN(3)).isEqualTo(6);
+        assertThat(recursiveMethods.sumN(10)).isEqualTo(55);
     }
 
     @Test
     void testSumEvenIntNumbers(){
         RecursiveMethods recursiveMethods = new RecursiveMethods();
-        assertThat(recursiveMethods.sum_Even(0)).isZero();
+        assertThat(recursiveMethods.sumEven(0)).isZero();
         IllegalArgumentException exc = assertThrows(IllegalArgumentException.class,
-                ()->recursiveMethods.sum_Even(-1));
+                ()->recursiveMethods.sumEven(-1));
         org.assertj.core.api.Assertions.assertThat(exc.getMessage()).isEqualTo("Illegal argument");
-        assertThat(recursiveMethods.sum_Even(3)).isEqualTo(12);
-        assertThat(recursiveMethods.sum_Even(10)).isEqualTo(110);
+        assertThat(recursiveMethods.sumEven(4)).isEqualTo(6);
+        assertThat(recursiveMethods.sumEven(5)).isEqualTo(6);
     }
 
     @Test

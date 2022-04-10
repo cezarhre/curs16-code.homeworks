@@ -2,27 +2,31 @@ package ro.fasttrackit.curs16.homeworks;
 
 public class RecursiveMethods {
 
-    public Integer sum_n(int n) {
+    public Integer sumN(int n) {
         if (n < 0) {
             throw new IllegalArgumentException("Illegal argument");
         }
         if (n == 0) {
             return 0;
         } else {
-            return n + sum_n(n - 1);
+            return n + sumN(n - 1);
         }
     }
 
-    public Integer sum_Even(int n) {
+    public Integer sumEven(int n) {
         if (n < 0) {
             throw new IllegalArgumentException("Illegal argument");
         }
-        if (n == 0) {
+        if (n < 2) {
             return 0;
+        }
+         if (n % 2 == 0) {
+            return n + sumEven(n - 1);
         } else {
-            return 2 * n + sum_Even(n - 1);
+            return sumEven(n - 1);
         }
     }
+
 
     public String averseReverseString(String str) {
         if (str == null || str.isEmpty()) {
@@ -41,8 +45,9 @@ public class RecursiveMethods {
         }
         if (st.charAt(0) == st.charAt(st.length() - 1)) {
             return firstLastLetter(st.substring(1, st.length() - 1));
+        } else {
+            return false;
         }
-        return false;
     }
 
     public int sumDigits(int n) {
